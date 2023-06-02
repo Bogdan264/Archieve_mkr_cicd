@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from BookStoreApp.models import Book, Category
+import random
 
 
 # Create your views here.
@@ -42,3 +43,75 @@ def books_detail(request, category_slug=None, books_slug=None):
 
 def about(request):
     return render(request, "about.html")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def check_book(name):
+    try:
+        x = Book.objects.get(name=name)
+        return True
+    except:
+        pass
+    return False
+
+
+def check_category(name):
+    try:
+        x = Category.objects.get(name=name)
+        return True
+    except:
+        pass
+    return False

@@ -1,19 +1,12 @@
+
 import pytest
 import BookStoreApp.views as views
+import BookStoreApp.models as models
 
 
-# In console: python -m pytest -s -v test_build_and_run/
-def test_check_user():
-    assert views.check_user() == True
+def test_check_book():
+    assert views.check_book("Ромео і Джульєта") == True
 
 
-def test_check_login():
-    assert views.check_login() == True
-
-
-def test_check_order():
-    assert views.check_order() == True
-
-
-def test_check_cart():
-    views.check_cart()
+def test_check_category():
+    assert views.check_category("Детектив") == True
