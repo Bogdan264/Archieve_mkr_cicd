@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+<!--About page with url about-->
+<%{% block content %}
+    <div class="container py-5" height="320px">
+        <div class="row mt-5" height="320px">
+            <div class="col-10 mx-auto col-md-6 my-3" height="320px">
+                <img src="{{ book.image }}" height="320px">
+            </div>
+        </div>
+    </div>
+    <div class="col-10 mx-auto col-md-6 my-3">
+        <div class="custom_div">
+            <h1 class="product_title">{{ book.name }}</h1>
+            <p class="product_desc">Book Description</p>
+            <p class="text-justify product_text">{{ book.description }}</p>
+            <br/>
+            <br/>
+            <a href="{{ book.link_to_book }}">Читати онлайн</a>
+        </div>
+    </div>
+
+{% endblock %}

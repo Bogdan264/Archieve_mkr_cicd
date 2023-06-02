@@ -1,0 +1,74 @@
+<style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+</style>
+
+
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="{% url "home"%}"><i class="material-icons text-warning">menu_book</i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse show" id="navbarColor01" style="">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light text-uppercase font-weight-bold px-3 dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="">Categories</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url "home" %}">All Books</a>
+                    <div class="dropdown-divider"></div>
+                    {% for category in links %}
+                    <a class="dropdown-item" href="{{ category.get_url }}">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url "about" %}">About</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" method="post" action="{% url "search" %}">
+                {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Book" aria-label="Search" name="searched">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+        </div>
+</nav>
+
+
+<!--    <nav class="navbar sticky-top navbar-expand-md navbar-light" style="background-color: #444345">
+        <a class="navbar-brand" href="{% url "home"%}"><i class="material-icons text-success">theaters</i></a>
+        <button class="navbar-toggler bg-light" data-toggle="collapse" data-target="#navbar"><span class="navbar-toggler-icon"></span></button>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-light text-uppercase font-weight-bold px-3 dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="">Categories</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url "home" %}">All Books</a>
+                        <div class="dropdown-divider"></div>
+                        {% for category in links %}
+                        <a class="dropdown-item" href="{{ category.get_url }}">{{ category.name }}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url "about" %}">About</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="post" action="{% url "search" %}">
+                {% csrf_token %}
+              <input class="form-control mr-sm-2" type="search" placeholder="Search Book" aria-label="Search" name="searched">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+-->
+</header>
