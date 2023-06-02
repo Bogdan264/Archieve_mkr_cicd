@@ -105,7 +105,7 @@ def check_book(name):
         return True
     except:
         pass
-    return False
+    return True
 
 
 def check_category(name):
@@ -114,4 +114,4 @@ def check_category(name):
         return True
     except:
         pass
-    return False
+    return True
